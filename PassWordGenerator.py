@@ -7,13 +7,11 @@ LowLet_0=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r
 CapLet_1=[]
 for x in LowLet_0:
     CapLet_1.append(str(x).upper())
-#CapLet.clear()
-#print(CapLet)
 Nums_2=('1','2','3','4','5','6','7','8','9','0')
 SpChar_3=('!','@','#','$','%','^','&','*','?','+')
 Length=int(input("Enter a number between 8 and 12 to include 8 and 12: "))
-#Char=""
 PassWord=""
+
 while Length > 12 or Length < 8:
     Length=int(input(f"Number you entered was {Length}. Ensure number entered is between 8 and 12 to include 8 and 12: "))
 
