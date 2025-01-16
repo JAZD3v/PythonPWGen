@@ -1,4 +1,4 @@
-# PythonPWGen
+# Python PassWord Generator
 This is my first Python project. It is a PassWord Generator.
 ----------------------
 As of now the code must be copied into your terminal.
