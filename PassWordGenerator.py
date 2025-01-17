@@ -102,6 +102,3 @@ def PasswordGenerator(Min: int,Max: int):
     if SCCounter <2 or NCounter < 2 or CLcounter < 2 or LLcounter < 2:
         return PassWord
     print(f"Your entered length was {Length}. Actual length was {PassWord.__len__()}. Password is: {PassWord}. Type: {type(PassWord)}")
-
-
-PasswordGenerator(12,15)
