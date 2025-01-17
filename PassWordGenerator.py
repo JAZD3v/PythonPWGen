@@ -1,6 +1,6 @@
 def PasswordGenerator(Min: int,Max: int):
     if Min > Max:
-        raise Exception("The Minimum number (Min, the first entered) must be lower than the Maximum (Max, the second one enterd)")
+        raise Exception("The Minimum number (Min, the first entered) must be lower than the Maximum (Max, the second one entered)")
     # Password must have at least 2 capital/lower case leters, 2 numbers and 2 Special characters
 
     # Imports the random module
@@ -16,7 +16,7 @@ def PasswordGenerator(Min: int,Max: int):
     Length=int(input(f"Enter a number between {Min} and {Max} to include {Min} and {Max}: ")) # Receives input from the console for the length of the Password
     PassWord=""
 
-    # Veries of the length entered matches the parameters
+    # (THE BELOW LINE MAY NOT BE NEEDED) Verifies value entered for Length is within desired parameters for Min and Max Values
     while Length > Max or Length < Min:
         Length=int(input(f"Number you entered was {Length}. Ensure number entered is between {Min} and {Max} to include {Min} and {Max}: "))
 
@@ -102,3 +102,6 @@ def PasswordGenerator(Min: int,Max: int):
     if SCCounter <2 or NCounter < 2 or CLcounter < 2 or LLcounter < 2:
         return PassWord
     print(f"Your entered length was {Length}. Actual length was {PassWord.__len__()}. Password is: {PassWord}. Type: {type(PassWord)}")
+
+
+#PasswordGenerator(13,15)
