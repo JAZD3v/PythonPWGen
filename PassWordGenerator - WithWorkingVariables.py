@@ -122,7 +122,11 @@ def PasswordGenerator(Min: int,Max: int,RecEmail: str):
     msg['Subject'] = Subject
     msg['From'] = Sender
     msg['To'] = RecEmail
- 
+    #Message=f"""From: Admin {Sender}
+    #To: JBITech{RecEmail}
+    #Subject: {Subject}\n
+    #{Body}
+    #"""
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
 
@@ -134,5 +138,4 @@ def PasswordGenerator(Min: int,Max: int,RecEmail: str):
     except smtplib.SMTPAuthenticationError:
         print("Username and Password not accepted.")
 
-# See below for a sample function call:
-# PasswordGenerator(13,16,"User@YourDomain.com")
+PasswordGenerator(13,16,"jaybitech@gmail.com")
