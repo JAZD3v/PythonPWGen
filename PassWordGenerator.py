@@ -99,23 +99,25 @@ def PasswordGenerator(Min: int,Max: int,RecEmail: str):
                 SCCounter+=1
                 # if SCCounter >= 2:
 
-    #if SCCounter <2 or NCounter < 2 or CLcounter < 2 or LLcounter < 2:
-     #   return PassWord
+
     print(f"Your entered length was {Length}. Actual length was {PassWord.__len__()}. Password is: {PassWord}. Type: {type(PassWord)}")
-    #UPW=PassWord
 
     # Import smtplib for the actual sending function
     import smtplib
+
+    # Import the email modules.
+    # used to represent an email message in Python.
+    # You can use it to construct an email message with headers, body, and attachments, and later send it using the smtplib module.
     from email.message import EmailMessage
 
     msg = EmailMessage()
     
 
-    # me == the sender's email address
-    # you == the recipient's email address
-    Sender="jasonubrown@gmail.com"
-    #Receiver=RecEmail
-    PW="yxgk jrol akzu qkln"
+
+    Sender="Sender@Domain.com"
+    # Best to not save the pass words in clear text.
+    # This was created with the App Password from Gmail.
+    PW="Enter Password"
     Subject="DO NOT SHARE INFO - Your sign-in Credentials"
     Body=f"Hello,\n\nPlease see below for your password.\n{PassWord}"
     msg.set_content(Body)
@@ -123,13 +125,14 @@ def PasswordGenerator(Min: int,Max: int,RecEmail: str):
     msg['From'] = Sender
     msg['To'] = RecEmail
  
+    
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
 
     try:
         server.login(Sender,PW)
         print("Logged in...")
-        server.send_message(msg) # (Sender,RecEmail,msg)
+        server.send_message(msg)
         print("Email sent successfully")
     except smtplib.SMTPAuthenticationError:
         print("Username and Password not accepted.")
