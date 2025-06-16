@@ -25,17 +25,35 @@ def PasswordGenerator(Min: int,Max: int,RecEmail: str):
     CLcounter=0
     NCounter=0
     SCCounter=0
-
     # (THE BELOW LINE MAY NOT BE NEEDED) Verifies value entered for Length is within desired parameters for Min and Max Values
     while Length > Max or Length < Min:
         Length=int(input(f"Number you entered was {Length}. Ensure number entered is between {Min} and {Max} to include {Min} and {Max}: "))
+
+    # Assigns a number to represent the different character types.
+    # If that number is selected a charachter from that list  is randomly selected and it is added to the "PassWord" variable.
     x = 0
+
+
     # If ANY of the counters are less than 2 then the "PassWord" variable will be wiped.
     while SCCounter < 2 or NCounter < 2 or CLcounter < 2 or LLcounter < 2: # SCCounter < 2 or 
+        #CurrentDigit=""
+        """LLcounter=0
+        CLcounter=0
+        NCounter=0
+        SCCounter=0
+        if Redo_Counter >= 1:
+            print(f"Password did not match criteria: {PassWord}") # Prints the passwords that did not match. Just for your info.
+        PassWord=""
+        x=0
+        PassWordDict={}"""
         while x <= Length:
             if len(PassWordDict) >= 3:
                 if x == Length:
                     CurrentDigit=""
+                    """LLcounter=0
+                    CLcounter=0
+                    NCounter=0
+                    SCCounter=0"""
                     if str(PassWordDict.get(f"Digit_{x - 2}")).lower() == str(PassWordDict.get(f"Digit_{x - 1}")).lower() == str(PassWordDict.get(f"Digit_{x}")).lower():
                         print(f"Password {PassWord} has matching sequential numbers.", end="\n\n")
                         print(PassWordDict, end="\n\n")
@@ -52,6 +70,7 @@ def PasswordGenerator(Min: int,Max: int,RecEmail: str):
                         x -= 1
                     else:
                         if SCCounter < 2 or SCCounter < 2 or NCounter < 2 or CLcounter < 2 or LLcounter < 2: # SCCounter < 2 or 
+                            # if Redo_Counter >= 1:
                             print(f"Password did not match criteria: {PassWord}") # Prints the passwords that did not match. Just for your info.
                             PassWord = ""
                             x = 0
@@ -78,8 +97,6 @@ def PasswordGenerator(Min: int,Max: int,RecEmail: str):
                         PassWord = PassWord[:-1]
                         PassWordDict.popitem()
                         x -= 1
-                    # Assigns a number to represent the different character types.
-                    # If that number is selected a charachter from that list  is randomly selected and it is added to the "PassWord" variable.
                     Ran=random.randrange(0,4)
                     if Ran == 0:
                         LLcounter += 1
@@ -124,6 +141,24 @@ def PasswordGenerator(Min: int,Max: int,RecEmail: str):
                     PassWord = PassWord + CurrentDigit; x += 1
                     PassWordDict[f"Digit_{x}"] = CurrentDigit
 
+        """for a in LowLet_0:
+            if PassWord.count(a):
+                LLcounter+=1
+
+        for a in CapLet_1:
+            if PassWord.count(a):
+                CLcounter+=1
+
+        for a in Nums_2:
+            if PassWord.count(a):
+                NCounter+=1
+
+        for a in SpChar_3:
+            if PassWord.count(a):
+                SCCounter+=1"""
+
+
+
 
     print(f"Your entered length was {Length}. Actual length was {PassWord.__len__()}. Password is: {PassWord}. Type: {type(PassWord)}")
 
@@ -163,4 +198,4 @@ def PasswordGenerator(Min: int,Max: int,RecEmail: str):
         print("Username and Password not accepted.")
 
 # See below for a sample function call:
-# PasswordGenerator(9,15,"RecEmail@Domain.com")
+PasswordGenerator(9,16,"RecEmail@Domain.com")
